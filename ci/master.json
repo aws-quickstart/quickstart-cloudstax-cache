@@ -1,0 +1,62 @@
+[
+  {
+    "ParameterKey": "ClusterName",
+    "ParameterValue": "c1"
+  },
+  {
+    "ParameterKey": "AvailabilityZones",
+    "ParameterValue": "$[alfred_genaz_3]"
+  },
+  {
+    "ParameterKey": "NumberOfAZs",
+    "ParameterValue": "3"
+  },
+  {
+    "ParameterKey": "NumberOfNodes",
+    "ParameterValue": "6"
+  },
+  {
+    "ParameterKey": "KeyPairName",
+    "ParameterValue": "cikey"
+  },
+  {
+    "ParameterKey": "NodeInstanceType",
+    "ParameterValue": "t2.micro"
+  },
+  {
+    "ParameterKey": "ServiceName",
+    "ParameterValue": "myredis"
+  },
+  {
+    "ParameterKey": "Shards",
+    "ParameterValue": "3"
+  },
+  {
+    "ParameterKey": "ReplicasPerShard",
+    "ParameterValue": "2"
+  },
+  {
+    "ParameterKey": "MemoryCacheSizeMB",
+    "ParameterValue": "256"
+  },
+  {
+    "ParameterKey": "VolumeSizeGB",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "DisableAOF",
+    "ParameterValue": "false"
+  },
+  {
+    "ParameterKey": "AuthPass",
+    "ParameterValue": "changeme"
+  },
+  {
+    "ParameterKey": "MaxMemoryPolicy",
+    "ParameterValue": "allkeys-lru"
+  },
+  {
+    "ParameterKey": "ConfigCommandName",
+    "ParameterValue": "newconfig"
+  }
+]
