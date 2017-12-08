@@ -33,6 +33,15 @@
       ],
       "Description": "The Redis lambda zip object"
     },
+    "DeleteVolume": {
+      "Type": "String",
+      "Default": "false",
+      "AllowedValues": [
+        "true",
+        "false"
+      ],
+      "Description": "Whether delete Redis EBS volumes when deleting the stack"
+    },
     "ClusterName":{
       "Type":"String",
       "Description":"The Cluster Name",
@@ -249,6 +258,9 @@
         },
         "Region": {
           "Ref": "AWS::Region"
+        },
+        "DeleteVolume": {
+          "Ref": "DeleteVolume"
         },
         "Cluster":{
           "Ref": "ClusterName"

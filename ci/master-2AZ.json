@@ -1,5 +1,9 @@
 [
   {
+    "ParameterKey": "DeleteVolume",
+    "ParameterValue": "true"
+  },
+  {
     "ParameterKey": "ClusterName",
     "ParameterValue": "c1"
   },
