@@ -27,7 +27,6 @@ tests:
       - us-east-1
       - us-east-2
       - us-west-2
-      - us-west-2
   quickstart-2-AZ:
     template_file:  redis-master.template
     parameter_input: master-2AZ.json
