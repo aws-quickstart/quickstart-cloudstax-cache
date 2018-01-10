@@ -27,9 +27,9 @@
     },
     "S3ObjectLambdaZip": {
       "Type": "String",
-      "Default": "scripts/redis-lambda.zip",
+      "Default": "functions/packages/ServiceCreation/lambda.zip",
       "AllowedValues": [
-        "scripts/redis-lambda.zip"
+        "functions/packages/ServiceCreation/lambda.zip"
       ],
       "Description": "The Redis lambda zip object"
     },
