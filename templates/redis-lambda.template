@@ -169,6 +169,9 @@
           ]
         },
         "Parameters": {
+          "ClusterName": {
+            "Ref": "ClusterName"
+          },
           "QSS3BucketName": {
             "Ref": "QSS3BucketName"
           },
