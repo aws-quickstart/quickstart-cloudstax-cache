@@ -312,9 +312,9 @@
 
     "ClusterName":{
       "Type":"String",
-      "Description":"Name of the ECS or Swarm cluster. Could be same with the Stack name",
+      "Description":"Name of the ECS or Swarm cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
       "MinLength": "1",
-      "MaxLength": "255",
+      "MaxLength": "54",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
       "ConstraintDescription": "Cluster name must start with a letter and can only contain letters, numbers, or hyphens."
     },
@@ -396,9 +396,9 @@
     },
     "ServiceName": {
       "Type": "String",
-      "Description": "The Redis Service Name",
+      "Description": "The Redis Service Name. The service DNS name will be ServiceName-index.ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. Reserve 4 bytes for the index. The ClusterName can be up to 58 bytes.",
       "MinLength": "1",
-      "MaxLength": "255",
+      "MaxLength": "58",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
       "ConstraintDescription": "Service name must start with a letter and can only contain letters, numbers, or hyphens."
     },
