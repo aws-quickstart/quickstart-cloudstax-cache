@@ -244,7 +244,16 @@
       "DependsOn": "LambdaFunction",
       "DeletionPolicy": "Retain",
       "Properties": {
-        "LogGroupName": {"Fn::Join": ["", ["/aws/lambda/", {"Ref": "LambdaFunction"}]]},
+        "LogGroupName": {
+          "Fn::Join": [
+            "/",
+            [
+              {"Ref": "ClusterName"},
+              "aws/lambda",
+              {"Ref": "LambdaFunction"}
+            ]
+          ]
+        },
         "RetentionInDays": 30
       }
     },
