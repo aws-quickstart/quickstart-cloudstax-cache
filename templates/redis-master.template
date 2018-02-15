@@ -312,7 +312,7 @@
 
     "ClusterName":{
       "Type":"String",
-      "Description":"Name of the ECS or Swarm cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
+      "Description":"Name of the ECS cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
       "MinLength": "1",
       "MaxLength": "54",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
@@ -321,7 +321,7 @@
     "NumberOfNodes":{
       "Type":"Number",
       "Default":"6",
-      "Description":"Number of Nodes. This MUST match the total number of Redis nodes, Shards * ReplicasPerShard."
+      "Description":"Number of Nodes. This MUST match Shards times ReplicasPerShard."
     },
     "NodeAMIOS": {
       "AllowedValues": [
@@ -396,7 +396,7 @@
     },
     "ServiceName": {
       "Type": "String",
-      "Description": "The Redis Service Name. The service DNS name will be ServiceName-index.ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. Reserve 4 bytes for the index. The ClusterName can be up to 58 bytes.",
+      "Description": "The Redis Service Name. The service DNS name will be ServiceName-index.ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. Reserve 4 bytes for the index. The ServiceName can be up to 58 bytes.",
       "MinLength": "1",
       "MaxLength": "58",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
@@ -456,7 +456,7 @@
     },
     "MaxMemoryPolicy": {
       "Type": "String",
-      "Default": "noeviction",
+      "Default": "allkeys-lru",
       "AllowedValues": [
         "noeviction",
         "volatile-lru",
@@ -467,7 +467,7 @@
         "allkeys-random",
         "volatile-ttl"
       ],
-      "Description": "Redis eviction policy when the memory limit is reached"
+      "Description": "Redis eviction policy when the memory limit is reached. For the detail eviction policies, please refer to https://redis.io/topics/lru-cache."
     },
     "ConfigCommandName": {
       "Type": "String",

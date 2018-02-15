@@ -238,7 +238,7 @@
     },
     "ClusterName":{
       "Type":"String",
-      "Description":"Name of the ECS or Swarm cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
+      "Description":"Name of the ECS cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
       "MinLength": "1",
       "MaxLength": "54",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
@@ -393,7 +393,7 @@
         "allkeys-random",
         "volatile-ttl"
       ],
-      "Description": "Redis eviction policy when the memory limit is reached"
+      "Description": "Redis eviction policy when the memory limit is reached. For the detail eviction policies, please refer to https://redis.io/topics/lru-cache."
     },
     "ConfigCommandName": {
       "Type": "String",
