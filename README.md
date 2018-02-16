@@ -2,11 +2,16 @@
 
 This Quick Start deploys Redis by CloudStax into an AWS Cloud configuration of your choice.
 
-[Redis](https://redis.io/) is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+Redis by CloudStax is based on the popular open source [Redis](https://redis.io/). Redis is a distributed in-memory data store or cache system. Redis by CloudStax makes it easy to set up, manage, and scale Redis in AWS. It removes the complexity associated with deploying and managing Redis, and provides a high-performance, scalable, and cost-effective data store or cache solution.
 
-CloudStax runs Redis in container on top of AWS Elastic Container Service and [CloudStax FireCamp](https://github.com/cloudstax/firecamp). Each Redis container gets one AWS EBS volume and one Static IP. CloudStax Redis is designed to handle the failure automatically for you. When one node goes down, AWS Auto Scaling Group will start a new node. AWS ECS will automatically start the service container. FireCamp will attach the original EBS volume and take over the Static IP. There is no data copy involved during the failover, and it is seamless to the application.
+Redis by CloudStax runs in container on top of AWS Elastic Container Service and [CloudStax FireCamp](https://github.com/cloudstax/firecamp). Each Redis container gets one AWS EBS volume and one static IP. Each Redis container also has a unique DNS name that points to the static IP, so an application can simply access Redis by the DNS names.
 
-Each Redis container also gets one unique DNS name. So the application could simply access Redis via the DNS names. Each DNS name always points to the same Static IP. For example, the cluster name is “mycluster”, Redis service name is “myredis” and Redis Cluster has 3 shards and 2 replicas per shard. Redis will have the DNS names, from “myredis-0.mycluster-firecmap.com” to “myredis-5.mycluster-firecmap.com”.
+Redis by CloudStax enhances the reliability for the production deployments.
+
+* Deploys the Redis nodes across multiple Availability Zones.
+* Automatic detection and recovery when one Redis node fails.
+* Automatically promotes a read replica to the new primary when one primary node or Availability Zone fails.
+* Enhanced security and isolation for Redis.
 
 The AWS CloudFormation templates included with the Quick Start automate the following:
 
