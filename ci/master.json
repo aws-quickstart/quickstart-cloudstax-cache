@@ -24,6 +24,10 @@
     "ParameterValue": "cikey"
   },
   {
+    "ParameterKey": "RemoteAccessCIDR",
+    "ParameterValue": "10.0.0.0/16"
+  },
+  {
     "ParameterKey": "NodeInstanceType",
     "ParameterValue": "t2.micro"
   },
