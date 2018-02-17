@@ -226,7 +226,7 @@
           ]
         },
         "Timeout" : "300",
-        "Handler" : "redis.lambda_handler",
+        "Handler" : "setup.lambda_handler",
         "VpcConfig": {
           "SecurityGroupIds": [
             {
