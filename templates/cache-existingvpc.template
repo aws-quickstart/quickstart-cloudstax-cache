@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "This template creates an AWS ECS cluster and the Redis Cluster Service in an existing VPC. The application runs on RedisAccessSecurityGroup and the same VPC to access Redis.",
+  "Description": "This template creates an AWS ECS cluster and the Redis Cluster Service in an existing VPC. The application runs on RedisAccessSecurityGroup and the same VPC to access Redis. License: Apache 2.0 (Please do not remove) Feb,19,2018 (qs-1o6j92eae)",
   "Metadata": {
     "AWS::CloudFormation::Interface": {
       "ParameterGroups": [

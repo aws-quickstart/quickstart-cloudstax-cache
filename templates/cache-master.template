@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "This template creates a new VPC, an AWS ECS cluster and a Redis Cluster Service. The BastionSecurityGroup is the only one that is allowed to ssh to the cluster nodes. The application runs on RedisAccessSecurityGroup and VPC to access Redis.",
+  "Description": "This template creates a new VPC, an AWS ECS cluster and a Redis Cluster Service. The BastionSecurityGroup is the only one that is allowed to ssh to the cluster nodes. The application runs on RedisAccessSecurityGroup and VPC to access Redis. License: Apache 2.0 (Please do not remove) Feb,19,2018 (qs-1o6j92ea9)",
   "Metadata": {
     "AWS::CloudFormation::Interface": {
       "ParameterGroups": [

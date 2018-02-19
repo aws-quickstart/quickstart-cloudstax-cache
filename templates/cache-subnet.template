@@ -1,14 +1,14 @@
 {
-  "AWSTemplateFormatVersion":"2010-09-09",
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "This template creates an AWS ECS cluster and the Redis Cluster Service in an existing VPC. The application runs on RedisAccessSecurityGroup and the same VPC to access Redis.",
-  "Parameters":{
+  "Parameters": {
     "ServiceSecurityGroupID": {
       "Type": "AWS::EC2::SecurityGroup::Id",
       "Description": "The SecurityGroup to access the cluster nodes."
     },
-    "VPCID":{
-      "Type":"AWS::EC2::VPC::Id",
-      "Description":"Select a VPC that allows instances to access the Internet."
+    "VPCID": {
+      "Type": "AWS::EC2::VPC::Id",
+      "Description": "Select a VPC that allows instances to access the Internet."
     },
     "SubnetIDs": {
       "Type": "List<AWS::EC2::Subnet::Id>",
@@ -25,7 +25,6 @@
       "ConstraintDescription": "CIDR block parameter must be in the form x.x.x.x/x",
       "Description": "The Subnet CIDR to run the Redis creation Lambda function."
     },
-
     "QSS3BucketName": {
       "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",
       "Default": "qscloudstax",
@@ -49,9 +48,9 @@
       ],
       "Description": "Whether delete Redis EBS volumes when deleting the stack"
     },
-    "ClusterName":{
-      "Type":"String",
-      "Description":"Name of the cluster.",
+    "ClusterName": {
+      "Type": "String",
+      "Description": "Name of the cluster.",
       "MinLength": "1",
       "MaxLength": "255",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
@@ -152,7 +151,7 @@
       ]
     }
   },
-  "Resources":{
+  "Resources": {
     "RedisLambdaSubnet": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
@@ -207,7 +206,6 @@
         }
       }
     },
-
     "RedisLambda": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
