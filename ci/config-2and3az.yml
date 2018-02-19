@@ -18,7 +18,7 @@ global:
     - us-west-1
     - us-west-2
 tests:
-  cloudstax-cache:
+  cloudstax-cache-3AZ:
     template_file:  cache-master.template
     parameter_input: master.json
     regions:
@@ -27,3 +27,14 @@ tests:
       - us-east-1
       - us-east-2
       - us-west-2
+  cloudstax-cache-2AZ:
+    template_file:  cache-master.template
+    parameter_input: master-2AZ.json
+    regions:
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-southeast-1
+      - ca-central-1
+      - eu-central-1
+      - eu-west-2
+      - us-west-1
