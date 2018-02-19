@@ -1,5 +1,5 @@
 {
-  "AWSTemplateFormatVersion":"2010-09-09",
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "This template creates an AWS ECS cluster and the Redis Cluster Service in an existing VPC. The application runs on RedisAccessSecurityGroup and the same VPC to access Redis.",
   "Metadata": {
     "AWS::CloudFormation::Interface": {
@@ -67,7 +67,7 @@
             "MaxMemoryPolicy",
             "ConfigCommandName"
           ]
-        },
+        }
       ],
       "ParameterLabels": {
         "AvailabilityZones": {
@@ -94,11 +94,9 @@
         "LambdaSubnetCIDR": {
           "default": "Lambda Subnet CIDR"
         },
-
         "KeyPairName": {
           "default": "Key Pair Name"
         },
-
         "ClusterName": {
           "default": "Cluster Name"
         },
@@ -117,14 +115,12 @@
         "DeleteVolume": {
           "default": "Delete Redis EBS Volumes"
         },
-
         "QSS3BucketName": {
           "default": "Quick Start S3 Bucket Name"
         },
         "QSS3KeyPrefix": {
           "default": "Quick Start S3 Key Prefix"
         },
-
         "RedisRelease": {
           "default": "Redis Release Version"
         },
@@ -164,7 +160,7 @@
       }
     }
   },
-  "Parameters":{
+  "Parameters": {
     "AvailabilityZones": {
       "Type": "List<AWS::EC2::AvailabilityZone::Name>",
       "Description": "The Availability Zones for the Subnets. Please make sure the AvailabilityZones match the Subnets and less or equal to Number of Container Worker Nodes, or else the cluster will not work."
@@ -179,9 +175,9 @@
       "Default": "3",
       "Type": "String"
     },
-    "VPCID":{
-      "Type":"AWS::EC2::VPC::Id",
-      "Description":"Select a VPC that allows instances to access the Internet."
+    "VPCID": {
+      "Type": "AWS::EC2::VPC::Id",
+      "Description": "Select a VPC that allows instances to access the Internet."
     },
     "PrivateSubnet1ID": {
       "Type": "AWS::EC2::Subnet::Id",
@@ -198,7 +194,6 @@
       "Description": "The third existing SubnetID in your VPC where you want to deploy node(s). Please make sure the Subnet is in the AvailabilityZones.",
       "AllowedPattern": "subnet-[0-9a-z]{8}"
     },
-
     "BastionSecurityGroupID": {
       "Type": "AWS::EC2::SecurityGroup::Id",
       "Description": "The BastionSecurityGroup to SSH to the nodes."
@@ -209,12 +204,10 @@
       "ConstraintDescription": "CIDR block parameter must be in the form x.x.x.x/x",
       "Description": "The Subnet CIDR to run the Redis creation Lambda function. MUST be in the form x.x.x.x/x"
     },
-
-    "KeyPairName":{
-      "Type":"AWS::EC2::KeyPair::KeyName",
-      "Description":"Name of an existing EC2 KeyPair to enable SSH access to the cluster nodes."
+    "KeyPairName": {
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "Description": "Name of an existing EC2 KeyPair to enable SSH access to the cluster nodes."
     },
-
     "QSS3BucketName": {
       "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",
       "Default": "quickstart-reference",
@@ -226,19 +219,21 @@
       "AllowedPattern": "^[0-9a-zA-Z-/]*$",
       "ConstraintDescription": "Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
       "Description": "S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
-      "Default": "cloudstax/redis/latest/",
+      "Default": "cloudstax/cache/latest/",
       "Type": "String"
     },
-
     "FireCampRelease": {
       "Type": "String",
       "Default": "0.9.3",
-      "AllowedValues": [ "0.9.3", "0.9.2" ],
+      "AllowedValues": [
+        "0.9.3",
+        "0.9.2"
+      ],
       "Description": "The FireCamp release version. For the detail release notes, please refer to https://github.com/cloudstax/firecamp/releases."
     },
-    "ClusterName":{
-      "Type":"String",
-      "Description":"Name of the ECS cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
+    "ClusterName": {
+      "Type": "String",
+      "Description": "Name of the ECS cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
       "MinLength": "1",
       "MaxLength": "54",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
@@ -252,16 +247,16 @@
       "Description": "The Linux distribution for the AMI to be used for the service instances",
       "Type": "String"
     },
-    "NumberOfNodes":{
-      "Type":"Number",
-      "Default":"6",
-      "Description":"Number of Nodes. This MUST match the total number of Redis nodes, Shards * ReplicasPerShard."
+    "NumberOfNodes": {
+      "Type": "Number",
+      "Default": "6",
+      "Description": "Number of Nodes. This MUST match the total number of Redis nodes, Shards * ReplicasPerShard."
     },
-    "NodeInstanceType":{
-      "Description":"EC2 instance type",
-      "Type":"String",
-      "Default":"r4.large",
-      "AllowedValues":[
+    "NodeInstanceType": {
+      "Description": "EC2 instance type",
+      "Type": "String",
+      "Default": "r4.large",
+      "AllowedValues": [
         "t2.micro",
         "t2.small",
         "t2.medium",
@@ -300,7 +295,7 @@
         "c5.9xlarge",
         "c5.18xlarge"
       ],
-      "ConstraintDescription":"Please choose a valid instance type."
+      "ConstraintDescription": "Please choose a valid instance type."
     },
     "DeleteVolume": {
       "Type": "String",
@@ -311,7 +306,6 @@
       ],
       "Description": "Whether delete Redis EBS volumes when deleting the stack"
     },
-
     "RedisRelease": {
       "Type": "String",
       "Default": "4.0",
@@ -431,7 +425,7 @@
       ]
     }
   },
-  "Resources":{
+  "Resources": {
     "RedisAccessSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -503,7 +497,6 @@
         ]
       }
     },
-
     "FireCampStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
@@ -553,7 +546,9 @@
                 "Fn::Join": [
                   ",",
                   [
-                    {"Ref": "PrivateSubnet1ID"}
+                    {
+                      "Ref": "PrivateSubnet1ID"
+                    }
                   ]
                 ]
               },
@@ -564,8 +559,12 @@
                     "Fn::Join": [
                       ",",
                       [
-                        {"Ref": "PrivateSubnet1ID"},
-                        {"Ref": "PrivateSubnet2ID"}
+                        {
+                          "Ref": "PrivateSubnet1ID"
+                        },
+                        {
+                          "Ref": "PrivateSubnet2ID"
+                        }
                       ]
                     ]
                   },
@@ -573,9 +572,15 @@
                     "Fn::Join": [
                       ",",
                       [
-                        {"Ref": "PrivateSubnet1ID"},
-                        {"Ref": "PrivateSubnet2ID"},
-                        {"Ref": "PrivateSubnet3ID"}
+                        {
+                          "Ref": "PrivateSubnet1ID"
+                        },
+                        {
+                          "Ref": "PrivateSubnet2ID"
+                        },
+                        {
+                          "Ref": "PrivateSubnet3ID"
+                        }
                       ]
                     ]
                   }
@@ -603,7 +608,6 @@
         }
       }
     },
-
     "RedisStack": {
       "DependsOn": "FireCampStack",
       "Type": "AWS::CloudFormation::Stack",
@@ -636,7 +640,9 @@
                 "Fn::Join": [
                   ",",
                   [
-                    {"Ref": "PrivateSubnet1ID"}
+                    {
+                      "Ref": "PrivateSubnet1ID"
+                    }
                   ]
                 ]
               },
@@ -647,8 +653,12 @@
                     "Fn::Join": [
                       ",",
                       [
-                        {"Ref": "PrivateSubnet1ID"},
-                        {"Ref": "PrivateSubnet2ID"}
+                        {
+                          "Ref": "PrivateSubnet1ID"
+                        },
+                        {
+                          "Ref": "PrivateSubnet2ID"
+                        }
                       ]
                     ]
                   },
@@ -656,9 +666,15 @@
                     "Fn::Join": [
                       ",",
                       [
-                        {"Ref": "PrivateSubnet1ID"},
-                        {"Ref": "PrivateSubnet2ID"},
-                        {"Ref": "PrivateSubnet3ID"}
+                        {
+                          "Ref": "PrivateSubnet1ID"
+                        },
+                        {
+                          "Ref": "PrivateSubnet2ID"
+                        },
+                        {
+                          "Ref": "PrivateSubnet3ID"
+                        }
                       ]
                     ]
                   }
@@ -725,11 +741,10 @@
         }
       }
     }
-
   },
-  "Outputs":{
-    "RedisAccessSecurityGroup":{
-      "Value":{
+  "Outputs": {
+    "RedisAccessSecurityGroup": {
+      "Value": {
         "Ref": "RedisAccessSecurityGroup"
       }
     }
