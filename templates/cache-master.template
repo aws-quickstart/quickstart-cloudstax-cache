@@ -1,5 +1,5 @@
 {
-  "AWSTemplateFormatVersion":"2010-09-09",
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "This template creates a new VPC, an AWS ECS cluster and a Redis Cluster Service. The BastionSecurityGroup is the only one that is allowed to ssh to the cluster nodes. The application runs on RedisAccessSecurityGroup and VPC to access Redis.",
   "Metadata": {
     "AWS::CloudFormation::Interface": {
@@ -112,11 +112,9 @@
         "RemoteAccessCIDR": {
           "default": "Allowed Bastion External Access CIDR"
         },
-
         "KeyPairName": {
           "default": "Key Pair Name"
         },
-
         "BastionAMIOS": {
           "default": "Bastion AMI Operating System"
         },
@@ -126,7 +124,6 @@
         "NumBastionHosts": {
           "default": "Number of Bastion Hosts"
         },
-
         "ClusterName": {
           "default": "Cluster Name"
         },
@@ -145,7 +142,6 @@
         "DeleteVolume": {
           "default": "Delete Redis EBS Volumes"
         },
-
         "RedisRelease": {
           "default": "Redis Release Version"
         },
@@ -182,7 +178,6 @@
         "ConfigCommandName": {
           "default": "New Name of Redis CONFIG Command"
         },
-
         "QSS3BucketName": {
           "default": "Quick Start S3 Bucket Name"
         },
@@ -192,7 +187,7 @@
       }
     }
   },
-  "Parameters":{
+  "Parameters": {
     "AvailabilityZones": {
       "Description": "List of Availability Zones to use for the subnets in the VPC. This MUST match the number of AvailabilityZones. Please use 3 AvailabilityZones for the production system.",
       "Type": "List<AWS::EC2::AvailabilityZone::Name>"
@@ -261,12 +256,10 @@
       "ConstraintDescription": "CIDR block parameter must be in the form x.x.x.x/x",
       "Description": "Allowed CIDR block for external SSH access to the Bastion nodes. MUST be in the form x.x.x.x/x"
     },
-
-    "KeyPairName":{
-      "Type":"AWS::EC2::KeyPair::KeyName",
-      "Description":"Name of an existing EC2 KeyPair to enable SSH access to the Bastion and cluster nodes."
+    "KeyPairName": {
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "Description": "Name of an existing EC2 KeyPair to enable SSH access to the Bastion and cluster nodes."
     },
-
     "BastionAMIOS": {
       "AllowedValues": [
         "Amazon-Linux-HVM",
@@ -279,23 +272,23 @@
       "Type": "String"
     },
     "BastionInstanceType": {
-        "Default": "t2.micro",
-        "Type": "String",
-        "Description": "Amazon EC2 instance type for the second bastion instance",
-        "AllowedValues": [
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge"
-        ]
+      "Default": "t2.micro",
+      "Type": "String",
+      "Description": "Amazon EC2 instance type for the second bastion instance",
+      "AllowedValues": [
+        "t2.nano",
+        "t2.micro",
+        "t2.small",
+        "t2.medium",
+        "t2.large",
+        "m3.large",
+        "m3.xlarge",
+        "m3.2xlarge",
+        "m4.large",
+        "m4.xlarge",
+        "m4.2xlarge",
+        "m4.4xlarge"
+      ]
     },
     "NumBastionHosts": {
       "AllowedValues": [
@@ -308,19 +301,18 @@
       "Description": "Enter the number of bastion hosts to create",
       "Type": "String"
     },
-
-    "ClusterName":{
-      "Type":"String",
-      "Description":"Name of the ECS cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
+    "ClusterName": {
+      "Type": "String",
+      "Description": "Name of the ECS cluster. The cluster domain will be ClusterName-firecamp.com. Each label of the domain name can be up to 63 bytes long. The ClusterName can be up to 54 bytes.",
       "MinLength": "1",
       "MaxLength": "54",
       "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
       "ConstraintDescription": "Cluster name must start with a letter and can only contain letters, numbers, or hyphens."
     },
-    "NumberOfNodes":{
-      "Type":"Number",
-      "Default":"6",
-      "Description":"Number of Nodes. This MUST match Shards times ReplicasPerShard."
+    "NumberOfNodes": {
+      "Type": "Number",
+      "Default": "6",
+      "Description": "Number of Nodes. This MUST match Shards times ReplicasPerShard."
     },
     "NodeAMIOS": {
       "AllowedValues": [
@@ -330,11 +322,11 @@
       "Description": "The Linux distribution for the AMI to be used for the service instances",
       "Type": "String"
     },
-    "NodeInstanceType":{
-      "Description":"EC2 instance type",
-      "Type":"String",
-      "Default":"r4.large",
-      "AllowedValues":[
+    "NodeInstanceType": {
+      "Description": "EC2 instance type",
+      "Type": "String",
+      "Default": "r4.large",
+      "AllowedValues": [
         "t2.micro",
         "t2.small",
         "t2.medium",
@@ -373,7 +365,7 @@
         "c5.9xlarge",
         "c5.18xlarge"
       ],
-      "ConstraintDescription":"Please choose a valid instance type."
+      "ConstraintDescription": "Please choose a valid instance type."
     },
     "DeleteVolume": {
       "Type": "String",
@@ -384,7 +376,6 @@
       ],
       "Description": "Whether delete Redis EBS volumes when deleting the stack"
     },
-
     "RedisRelease": {
       "Type": "String",
       "Default": "4.0",
@@ -477,11 +468,13 @@
       "AllowedPattern": "[a-zA-Z]*",
       "ConstraintDescription": "ConfigCommandName must start with a letter and can only contain letters."
     },
-
     "FireCampRelease": {
       "Type": "String",
       "Default": "0.9.3",
-      "AllowedValues": [ "0.9.3", "0.9.2" ],
+      "AllowedValues": [
+        "0.9.3",
+        "0.9.2"
+      ],
       "Description": "The FireCamp release version. For the detail release notes, please refer to https://github.com/cloudstax/firecamp/releases."
     },
     "QSS3BucketName": {
@@ -517,7 +510,7 @@
       ]
     }
   },
-  "Resources":{
+  "Resources": {
     "VPCStack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
@@ -527,9 +520,9 @@
             {
               "QSS3Region": {
                 "Fn::If": [
-                 "GovCloudCondition",
-                 "s3-us-gov-west-1",
-                 "s3"
+                  "GovCloudCondition",
+                  "s3-us-gov-west-1",
+                  "s3"
                 ]
               }
             }
@@ -584,9 +577,9 @@
             {
               "QSS3Region": {
                 "Fn::If": [
-                 "GovCloudCondition",
-                 "s3-us-gov-west-1",
-                 "s3"
+                  "GovCloudCondition",
+                  "s3-us-gov-west-1",
+                  "s3"
                 ]
               }
             }
@@ -636,7 +629,6 @@
         }
       }
     },
-
     "RedisAccessSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -720,7 +712,6 @@
         ]
       }
     },
-
     "FireCampStack": {
       "DependsOn": "BastionStack",
       "Type": "AWS::CloudFormation::Stack",
@@ -770,36 +761,50 @@
           "SubnetIDs": {
             "Fn::If": [
               "2AZCondition",
-              "Fn::Join": [
-                ",",
-                [
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet1AID"
-                  ],
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet2AID"
+              {
+                "Fn::Join": [
+                  ",",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet1AID"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet2AID"
+                      ]
+                    }
                   ]
                 ]
-              ],
-              "Fn::Join": [
-                ",",
-                [
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet1AID"
-                  ],
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet2AID"
-                  ],
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet3AID"
+              },
+              {
+                "Fn::Join": [
+                  ",",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet1AID"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet2AID"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet3AID"
+                      ]
+                    }
                   ]
                 ]
-              ]
+              }
             ]
           },
           "AvailabilityZones": {
@@ -822,7 +827,6 @@
         }
       }
     },
-
     "RedisStack": {
       "DependsOn": "FireCampStack",
       "Type": "AWS::CloudFormation::Stack",
@@ -881,7 +885,6 @@
           "ConfigCommandName": {
             "Ref": "ConfigCommandName"
           },
-
           "QSS3BucketName": {
             "Ref": "QSS3BucketName"
           },
@@ -894,53 +897,67 @@
           "SubnetIDs": {
             "Fn::If": [
               "2AZCondition",
-              "Fn::Join": [
-                ",",
-                [
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet1AID"
-                  ],
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet2AID"
+              {
+                "Fn::Join": [
+                  ",",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet1AID"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet2AID"
+                      ]
+                    }
                   ]
                 ]
-              ],
-              "Fn::Join": [
-                ",",
-                [
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet1AID"
-                  ],
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet2AID"
-                  ],
-                  "Fn::GetAtt": [
-                    "VPCStack",
-                    "Outputs.PrivateSubnet3AID"
+              },
+              {
+                "Fn::Join": [
+                  ",",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet1AID"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet2AID"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "VPCStack",
+                        "Outputs.PrivateSubnet3AID"
+                      ]
+                    }
                   ]
                 ]
-              ]
+              }
             ]
           }
         }
       }
     }
   },
-  "Outputs":{
+  "Outputs": {
     "VPCID": {
-      "Value":{
+      "Value": {
         "Fn::GetAtt": [
           "VPCStack",
           "Outputs.VPCID"
         ]
       }
     },
-    "RedisAccessSecurityGroup":{
-      "Value":{
+    "RedisAccessSecurityGroup": {
+      "Value": {
         "Ref": "RedisAccessSecurityGroup"
       }
     }
