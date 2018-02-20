@@ -718,7 +718,7 @@
       "Properties": {
         "TemplateURL": {
           "Fn::Sub": [
-            "https://${QSS3BucketName}.${QSS3Region}.amazonaws.com/${QSS3KeyPrefix}submodules/quickstart-cloudstax-firecamp/templates/firecamp.template",
+            "https://${QSS3BucketName}.${QSS3Region}.amazonaws.com/${QSS3KeyPrefix}submodules/quickstart-cloudstax-firecamp/templates/firecamp-common.template",
             {
               "QSS3Region": {
                 "Fn::If": [
