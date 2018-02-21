@@ -21,7 +21,7 @@ The AWS CloudFormation templates included with the Quick Start automate the foll
 
 You can also use the AWS CloudFormation templates as a starting point for your own implementation.
 
-![Quick Start architecture for CloudStax Cache for Redis on AWS](https://d1.awsstatic.com/partner-network/QuickStart/datasheets/cloudstax-cache-for-redis-architecture-on-the-aws-cloud.png)
+![Quick Start architecture for CloudStax Cache for Redis on AWS](https://d1.awsstatic.com/partner-network/QuickStart/datasheets/cloudstax-cache-for-redis-architecture-on-the-aws-cloud.908bad8de4d57b83a4d9124e1768117504070535.png)
 
 For architectural details, best practices, step-by-step instructions, and customization options, see the 
 [deployment guide](https://s3.amazonaws.com/quickstart-reference/cloudstax/cache/latest/doc/cloudstax-cache-for-redis-on-the-aws-cloud.pdf).
