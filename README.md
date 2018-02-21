@@ -1,4 +1,5 @@
-# CloudStax Cache for Redis on the AWS Cloud
+# quickstart-cloudstax-cache
+## CloudStax Cache for Redis on the AWS Cloud
 
 This Quick Start deploys CloudStax Cache for Redis into an AWS Cloud configuration of your choice.
 
@@ -15,5 +16,15 @@ Deploying CloudStax Cache on AWS enhances the reliability of using Redis for you
 
 The AWS CloudFormation templates included with the Quick Start automate the following:
 
-- Deploying Redis into a new VPC
+- Deploying Redis into a new virtual private cloud (VPC) on AWS
 - Deploying Redis into an existing VPC
+
+You can also use the AWS CloudFormation templates as a starting point for your own implementation.
+
+![Quick Start architecture for CloudStax Cache for Redis on AWS](https://d1.awsstatic.com/partner-network/QuickStart/datasheets/cloudstax-cache-for-redis-architecture-on-the-aws-cloud.png)
+
+For architectural details, best practices, step-by-step instructions, and customization options, see the 
+[deployment guide](https://s3.amazonaws.com/quickstart-reference/cloudstax/cache/latest/doc/cloudstax-cache-for-redis-on-the-aws-cloud.pdf).
+
+To post feedback, submit feature ideas, or report bugs, use the **Issues** section of this GitHub repo.
+If you'd like to submit code for this Quick Start, please review the [AWS Quick Start Contributor's Kit](https://aws-quickstart.github.io/). 
