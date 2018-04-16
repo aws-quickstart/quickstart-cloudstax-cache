@@ -5,11 +5,11 @@
   },
   {
     "ParameterKey": "ClusterName",
-    "ParameterValue": "alfred-develop-$[alfred_genuuid]"
+    "ParameterValue": "$[taskcat_random-string]"
   },
   {
     "ParameterKey": "AvailabilityZones",
-    "ParameterValue": "$[alfred_genaz_3]"
+    "ParameterValue": "$[taskcat_genaz_3]"
   },
   {
     "ParameterKey": "NumberOfAZs",
@@ -66,5 +66,9 @@
   {
     "ParameterKey": "ConfigCommandName",
     "ParameterValue": "newconfig"
+  },
+  {
+     "ParameterKey": "QSS3BucketName",
+     "ParameterValue": "$[taskcat_autobucket]"
   }
 ]
