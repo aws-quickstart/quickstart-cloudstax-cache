@@ -13,7 +13,6 @@
     "SubnetIDs": {
       "Type": "List<AWS::EC2::Subnet::Id>",
       "Description": "The existing subnets in your VPC where you want to deploy node(s). Please make sure the Subnets match the AvailabilityZones.",
-      "AllowedPattern": "subnet-[0-9a-z]{8}"
     },
     "AvailabilityZones": {
       "Type": "List<AWS::EC2::AvailabilityZone::Name>",

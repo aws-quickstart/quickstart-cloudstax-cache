@@ -9,7 +9,6 @@
     "SubnetIDs": {
       "Type": "List<AWS::EC2::Subnet::Id>",
       "Description": "The existing subnet to run Lambda function. This should be the subnet in the VPC where the Redis nodes are deployed.",
-      "AllowedPattern": "subnet-[0-9a-z]{8}"
     },
     "QSS3BucketName": {
       "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",

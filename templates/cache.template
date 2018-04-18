@@ -182,17 +182,14 @@
     "PrivateSubnet1ID": {
       "Type": "AWS::EC2::Subnet::Id",
       "Description": "The first existing SubnetID in your VPC where you want to deploy node(s). Please make sure the Subnet is in the AvailabilityZones.",
-      "AllowedPattern": "subnet-[0-9a-z]{8}"
     },
     "PrivateSubnet2ID": {
       "Type": "AWS::EC2::Subnet::Id",
       "Description": "The second existing SubnetID in your VPC where you want to deploy node(s). Please make sure the Subnet is in the AvailabilityZones.",
-      "AllowedPattern": "subnet-[0-9a-z]{8}"
     },
     "PrivateSubnet3ID": {
       "Type": "AWS::EC2::Subnet::Id",
       "Description": "The third existing SubnetID in your VPC where you want to deploy node(s). Please make sure the Subnet is in the AvailabilityZones.",
-      "AllowedPattern": "subnet-[0-9a-z]{8}"
     },
     "BastionSecurityGroupID": {
       "Type": "AWS::EC2::SecurityGroup::Id",
