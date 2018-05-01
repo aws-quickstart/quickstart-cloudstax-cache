@@ -5,7 +5,7 @@
   },
   {
     "ParameterKey": "ClusterName",
-    "ParameterValue": "$[taskcat_random-string]"
+    "ParameterValue": "cache-$[taskcat_random-string]"
   },
   {
     "ParameterKey": "AvailabilityZones",
