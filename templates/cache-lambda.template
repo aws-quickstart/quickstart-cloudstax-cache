@@ -223,7 +223,7 @@
             "Outputs.LambdaExecutionRoleArn"
           ]
         },
-        "Timeout": "300",
+        "Timeout": 300,
         "Handler": "setup.lambda_handler",
         "VpcConfig": {
           "SecurityGroupIds": [
@@ -239,7 +239,6 @@
     },
     "LambdaFunctionLogGroup": {
       "Type": "AWS::Logs::LogGroup",
-      "DependsOn": "LambdaFunction",
       "DeletionPolicy": "Retain",
       "Properties": {
         "LogGroupName": {

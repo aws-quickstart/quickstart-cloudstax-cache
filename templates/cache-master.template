@@ -568,7 +568,6 @@
       }
     },
     "BastionStack": {
-      "DependsOn": "VPCStack",
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "TemplateURL": {
@@ -654,8 +653,8 @@
         "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
-            "FromPort": "22",
-            "ToPort": "22",
+            "FromPort": 22,
+            "ToPort": 22,
             "SourceSecurityGroupId": {
               "Fn::GetAtt": [
                 "BastionStack",
@@ -665,8 +664,8 @@
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "6379",
-            "ToPort": "6379",
+            "FromPort": 6379,
+            "ToPort": 6379,
             "SourceSecurityGroupId": {
               "Ref": "RedisAccessSecurityGroup"
             }
@@ -687,24 +686,24 @@
         "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
-            "FromPort": "27040",
-            "ToPort": "27040",
+            "FromPort": 27040,
+            "ToPort": 27040,
             "SourceSecurityGroupId": {
               "Ref": "ServiceSecurityGroup"
             }
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "6379",
-            "ToPort": "6379",
+            "FromPort": 6379,
+            "ToPort": 6379,
             "SourceSecurityGroupId": {
               "Ref": "ServiceSecurityGroup"
             }
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "16379",
-            "ToPort": "16379",
+            "FromPort": 16379,
+            "ToPort": 16379,
             "SourceSecurityGroupId": {
               "Ref": "ServiceSecurityGroup"
             }
